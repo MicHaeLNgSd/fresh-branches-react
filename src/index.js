@@ -2,16 +2,71 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+/*
+// //Class component
+// class Heading extends React.Component {
+//   render() {
+//     //()=> react elem or component
+//     return <h1>Some heading</h1>;
+//   }
+// }
+// const HeadingClass = <Heading />;
+
+// //Functional component
+// function Paragraph(text = 'gdrgdrg') {
+//   return <p>{text}</p>;
+// }
+*/
+/*
+class Header extends React.Component {
+  render() {
+    return (
+      <header className="header">
+        <h1>Our site</h1>
+        <Navigation />
+        <Navigation />
+        <Navigation />
+        <Navigation />
+      </header>
+    );
+  }
+}
+
+class Navigation extends React.Component {
+  render() {
+    return (
+      <nav>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </nav>
+    );
+  }
+}
+
+class Main extends React.Component {
+  render() {
+    return (
+      <main>
+        <h2>H2</h2>
+        <p>lorem</p>
+      </main>
+    );
+  }
+}
+*/
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <>
     <App />
-  </React.StrictMode>
+  </>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// root.render(
+//   <React.StrictMode>
+//     <Header />
+//   </React.StrictMode>
+// );
