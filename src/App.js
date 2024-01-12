@@ -22,11 +22,11 @@ const user3 = {
 function App() {
   return (
     <>
-      <Header />
+      {/* <Header />
       <Greetings user={user1} />
       <Greetings user={user2} />
       <Greetings user={user3} />
-      <Paragraph text={'Parag Text'} title={'title text'} />
+      <Paragraph text={'Parag Text'} title={'title text'} /> */}
       <Phone color="black" price="123456" />
     </>
   );
