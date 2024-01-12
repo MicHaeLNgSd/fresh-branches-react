@@ -1,0 +1,66 @@
+:root {
+  font-size: 16px;
+  --userCardWidth: 200px;
+  --userCardHeaderHeight: 80px;
+  --userCardImageDiametr: 100px;
+  --linerGradientHeader: linear-gradient(-225deg, #22e1ff 0%, #1d8fe1 48%, #625eb1 100%);
+  --loaderSize: 150px;
+}
+
+.userCardItem {
+  width: var(--userCardWidth);
+  box-shadow: gray 0px 0px 10px;
+  border-radius: 20px;
+  overflow: hidden;
+
+  list-style-type: none;
+}
+
+.userCard {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cardHeader {
+  background: var(--linerGradientHeader);
+  height: var(--userCardHeaderHeight);
+  width: 100%;
+}
+
+.userImage {
+  height: var(--userCardImageDiametr);
+  width: var(--userCardImageDiametr);
+  border: 3px solid royalblue;
+  border-radius: 50%;
+
+  margin-top: calc(var(--userCardImageDiametr) / -2);
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.contentContainer {
+  width: 100%;
+  padding: 30px;
+  padding-top: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  margin-top: 10px;
+}
+
+.gender {
+  font-size: 1.2rem;
+  color: gray;
+}
