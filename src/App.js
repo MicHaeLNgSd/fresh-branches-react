@@ -4,29 +4,20 @@ import Header from './components/Header';
 import Paragraph from './components/Paragraph';
 import Phone from './components/Phone';
 
-const user1 = {
-  name: 'User',
-  lastName: 'Userenko',
-};
+function App(props) {
+  // props.state = {
 
-const user2 = {
-  name: 'Test',
-  lastName: 'Testovich',
-};
+  // };
 
-const user3 = {
-  name: 'John',
-  lastName: 'Doe',
-};
-
-function App() {
+  // phones: [
+  //   { id: 0, color: 'black', price: 789456 },
+  //   { id: 1, color: 'black', price: 456879 },
+  // ];
+  // const listOfPhones = phones.map((p) => <Phone color={p.color} price={p.price} />);
   return (
     <>
-      {/* <Header />
-      <Greetings user={user1} />
-      <Greetings user={user2} />
-      <Greetings user={user3} />
-      <Paragraph text={'Parag Text'} title={'title text'} /> */}
+      {/* {listOfPhones} */}
+      <Phone color="black" price="123456" />
       <Phone color="black" price="123456" />
     </>
   );

@@ -4,18 +4,9 @@ import './style.css';
 class Phone extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isPhoneOn: false };
+    this.state = { isPhoneOn: false, isPhoneShown: true };
   }
-  handleSetStateOff = () => {
-    this.setState({
-      isPhoneOn: false,
-    });
-  };
-  handleSetState = () => {
-    this.setState({
-      isPhoneOn: true,
-    });
-  };
+
   handleToggleState = () => {
     this.setState({
       isPhoneOn: !this.state.isPhoneOn,
@@ -25,23 +16,32 @@ class Phone extends React.Component {
     // }));
   };
 
+  handleVisibility = () => {
+    this.setState({
+      isPhoneShown: !this.state.isPhoneShown,
+    });
+  };
+
   render() {
     const { color, price } = this.props;
-    const { isPhoneOn } = this.state;
+    const { isPhoneOn, isPhoneShown } = this.state;
 
     const phoneStatus = isPhoneOn ? <PhoneOnText /> : <PhoneOffText />;
     const classDiv = isPhoneOn ? 'on' : 'off';
 
     return (
       <div className={classDiv}>
+        <button onClick={this.handleVisibility}>Toggle Phones visibility</button>
         <p>
           Phone is {color}, price = {price}
         </p>
-        <p>Phone is {isPhoneOn ? 'On' : 'Off'}</p>
-        {phoneStatus}
+        {isPhoneShown && (
+          <>
+            <p>Phone is {isPhoneOn ? 'On' : 'Off'}</p>
+            {phoneStatus}
+          </>
+        )}
         <button onClick={this.handleToggleState}>{!isPhoneOn ? 'On' : 'Off'}</button>
-        {/* <button onClick={this.handleSetState}>On</button>
-        <button onClick={this.handleSetStateOff}>Off</button> */}
       </div>
     );
   }
