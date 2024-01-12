@@ -1,57 +1,72 @@
 import React from 'react';
+import './style.css';
 
 class Phone extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isPhoneStateOn: false };
-
-    // this.handleClick = this.handleClick.bind(this);
+    this.state = { isPhoneOn: false };
   }
-  // handleClick() {
-  //   // this.state.isPhoneStateOn = true;
-  //   this.setState((state) => ({
-  //     isPhoneStateOn: !state.isPhoneStateOn,
-  //   }));
-  // }
+  handleSetStateOff = () => {
+    this.setState({
+      isPhoneOn: false,
+    });
+  };
+  handleSetState = () => {
+    this.setState({
+      isPhoneOn: true,
+    });
+  };
   handleToggleState = () => {
     this.setState({
-      isPhoneStateOn: true,
+      isPhoneOn: !this.state.isPhoneOn,
     });
     // this.setState((state) => ({
-    //   isPhoneStateOn: !state.isPhoneStateOn,
+    //   isPhoneOn: !state.isPhoneOn,
     // }));
   };
 
   render() {
     const { color, price } = this.props;
-    const { isPhoneStateOn } = this.state;
-    // prop.price -= prop.price;
+    const { isPhoneOn } = this.state;
+
+    const phoneStatus = isPhoneOn ? <PhoneOnText /> : <PhoneOffText />;
+    const classDiv = isPhoneOn ? 'on' : 'off';
 
     return (
-      <div>
+      <div className={classDiv}>
         <p>
           Phone is {color}, price = {price}
         </p>
-        <p>Phone is {isPhoneStateOn ? 'On' : 'Off'}</p>
-        <button onClick={this.handleToggleState}>{!isPhoneStateOn ? 'On' : 'Off'}</button>
+        <p>Phone is {isPhoneOn ? 'On' : 'Off'}</p>
+        {phoneStatus}
+        <button onClick={this.handleToggleState}>{!isPhoneOn ? 'On' : 'Off'}</button>
+        {/* <button onClick={this.handleSetState}>On</button>
+        <button onClick={this.handleSetStateOff}>Off</button> */}
       </div>
     );
   }
 }
 
+function PhoneOnText() {
+  return <p>Phone is currently ON</p>;
+}
+function PhoneOffText() {
+  return <p>Phone is currently OFF</p>;
+}
+
 // function Phone({ color, price }) {
-//   const [isPhoneStateOn, setIsPhoneStateOn] = useState(false);
+//   const [isPhoneOn, setisPhoneOn] = useState(false);
 //   function phoneStateToggle() {
-//     return setIsPhoneStateOn((prevState) => !prevState);
+//     return setisPhoneOn((prevState) => !prevState);
 //   }
 
 //   return (
 //     <div>
 //       <p>
 //         The {color.toLowerCase()} phone that costs is {price} is{' '}
-//         {isPhoneStateOn ? 'On' : 'Off'}
+//         {isPhoneOn ? 'On' : 'Off'}
 //       </p>
-//       <button onClick={phoneStateToggle}>{!isPhoneStateOn ? 'On' : 'Off'}</button>
+//       <button onClick={phoneStateToggle}>{!isPhoneOn ? 'On' : 'Off'}</button>
 //     </div>
 //   );
 // }
