@@ -1,74 +1,50 @@
 import React from 'react';
 import './style.css';
-
 class Phone extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isPhoneOn: false, isPhoneShown: true };
+    this.state = {
+      isOn: false,
+    };
   }
 
-  handleToggleState = () => {
+  handleToggle = () => {
+    const { isOn } = this.state;
     this.setState({
-      isPhoneOn: !this.state.isPhoneOn,
-    });
-    // this.setState((state) => ({
-    //   isPhoneOn: !state.isPhoneOn,
-    // }));
-  };
-
-  handleVisibility = () => {
-    this.setState({
-      isPhoneShown: !this.state.isPhoneShown,
+      isOn: !isOn,
     });
   };
 
   render() {
-    const { color, price } = this.props;
-    const { isPhoneOn, isPhoneShown } = this.state;
+    const {
+      phone: { color, price, isFavorite, id },
+      toggleFavorite,
+    } = this.props;
+    const { isOn } = this.state;
 
-    const phoneStatus = isPhoneOn ? <PhoneOnText /> : <PhoneOffText />;
-    const classDiv = isPhoneOn ? 'on' : 'off';
+    const phoneStatus = isOn ? <PhoneOnText /> : <PhoneOffText />;
+    const containerClass = `phoneContainer ${isOn ? 'on' : 'off'}`;
 
     return (
-      <div className={classDiv}>
-        <button onClick={this.handleVisibility}>Toggle Phones visibility</button>
-        <p>
-          Phone is {color}, price = {price}
-        </p>
-        {isPhoneShown && (
-          <>
-            <p>Phone is {isPhoneOn ? 'On' : 'Off'}</p>
-            {phoneStatus}
-          </>
-        )}
-        <button onClick={this.handleToggleState}>{!isPhoneOn ? 'On' : 'Off'}</button>
+      <div className={containerClass}>
+        <p>Phone is {color}</p>
+        <p>Phone price is {price}</p>
+        {phoneStatus}
+        {isFavorite && <p>Phone is favorite</p>}
+        <button onClick={this.handleToggle}>Switch {isOn ? 'off' : 'on'}</button>
+        <button onClick={() => toggleFavorite(id)}>
+          {isFavorite ? 'Remove' : 'Make'} Favorite
+        </button>
       </div>
     );
   }
 }
 
 function PhoneOnText() {
-  return <p>Phone is currently ON</p>;
+  return <p>Phone is currently on</p>;
 }
 function PhoneOffText() {
-  return <p>Phone is currently OFF</p>;
+  return <p>Phone is currently off</p>;
 }
-
-// function Phone({ color, price }) {
-//   const [isPhoneOn, setisPhoneOn] = useState(false);
-//   function phoneStateToggle() {
-//     return setisPhoneOn((prevState) => !prevState);
-//   }
-
-//   return (
-//     <div>
-//       <p>
-//         The {color.toLowerCase()} phone that costs is {price} is{' '}
-//         {isPhoneOn ? 'On' : 'Off'}
-//       </p>
-//       <button onClick={phoneStateToggle}>{!isPhoneOn ? 'On' : 'Off'}</button>
-//     </div>
-//   );
-// }
 
 export default Phone;
