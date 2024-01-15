@@ -16,10 +16,15 @@ class UserCardList extends React.Component {
       ],
     };
   }
+  removeUser = (id) => {
+    const { users } = this.state;
+    const newUsers = users.filter((u) => id !== u.id);
+    this.setState({ users: newUsers });
+  };
   render() {
     const { users } = this.state;
     const userComponents = users.map((u) => (
-      <UserCard key={u.id} name={u.name} isMale={u.isMale} />
+      <UserCard key={u.id} user={u} removeUser={this.removeUser} />
     ));
 
     return <ul id="userCardList">{userComponents}</ul>;

@@ -7,11 +7,19 @@ class UserCard extends React.Component {
     super(props);
   }
   render() {
-    const { name, isMale } = this.props;
+    const {
+      user: { id, name, isMale },
+      removeUser,
+    } = this.props;
+
     return (
       <li className="userCardItem">
         <article className="userCard">
-          <div className="cardHeader"></div>
+          <div className="cardHeader">
+            <button className="cardCloseBtn" onClick={() => removeUser(id)}>
+              x
+            </button>
+          </div>
           <img
             className="userImage"
             src="https://discourse.disneyheroesgame.com/uploads/default/original/3X/7/5/75b8e54268b741e4211fa45a1514e664d8b1595e.jpeg"

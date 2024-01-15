@@ -17,6 +17,7 @@
 }
 
 .userCard {
+  position: relative;
   height: 100%;
   width: 100%;
   display: flex;
@@ -63,4 +64,18 @@
 .gender {
   font-size: 1.2rem;
   color: gray;
+}
+
+.cardCloseBtn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+}
+.cardCloseBtn:hover {
+  cursor: pointer;
 }
