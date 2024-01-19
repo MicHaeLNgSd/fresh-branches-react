@@ -1,0 +1,66 @@
+.sliderWrapper
+  background-color: blue
+  position: relative
+  
+.sliderImg
+  width: 100%
+  object-fit: cover
+  object-position: center
+  display: block
+
+$diametrBtn: 40px
+$marginBtn: 30px
+
+%btn
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  background-color: royalblue
+  border: none
+  font-size: 30px
+  width: $diametrBtn
+  height: $diametrBtn
+  color: white
+  border-radius: 50%
+  &:hover
+    background-color: royalblue
+
+.prevBtn
+  @extend %btn
+  left: $marginBtn
+    
+.nextBtn
+  @extend %btn
+  right: $marginBtn
+
+.showBtn
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  background-color: royalblue
+  border: none
+  font-size: 30px
+  color: white
+  border-radius: 20px
+  padding: 5px 10px
+  opacity: 0
+  transition: all .3s
+  &:hover
+    opacity: .8
+    cursor: pointer
+
+.speedInput
+  width:80%
+  padding: 20px 0
+  position: absolute
+  bottom: 5%
+  left: 50%
+  transform: translateX(-50%)
+  opacity: 0
+  transition: all .3s
+  &:hover
+    opacity: .9
+    cursor: pointer
+
+  outline: none
