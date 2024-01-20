@@ -60,7 +60,7 @@ class SliderContainer extends Component {
     this.setState({
       curPage: newInd
     })
-    console.log('pageChange')
+    // console.log('pageChange')
   }
   render() {
     const { sliderContainer, slideHeader, slideText, slideLink } = style;
