@@ -56,20 +56,15 @@ class SliderContainer extends Component {
   }
   pageChange = (delta) => {
     const {curPage, slides: {length : len}} = this.state
-
-    const turn = delta < 0 ? len : 0
-    const newInd = (curPage + delta + turn) % len
-
+    const newInd = (curPage + delta % len + len) % len
     this.setState({
       curPage: newInd
     })
-    // console.log('pageChange')
+    console.log('pageChange')
   }
   render() {
     const { sliderContainer, slideHeader, slideText, slideLink } = style;
     const { slides, curPage } = this.state;
-    // const slidesElems = slides.map((s) => <SliderElem img={s.img} />);
-    // const slideElem = <SliderElem img={slides[curPage].img} />;
     const { img, alt, header, text, src } = slides[curPage];
     return (
       <div className={sliderContainer}>

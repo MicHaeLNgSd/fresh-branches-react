@@ -30,7 +30,6 @@ class SliderElem extends Component {
     const { speed } = this.state;
     const { pageChange } = this.props;
     const actualSpeed = this.maxSpeed + this.minSpeed - speed;
-    // const actualSpeed = speed
     this.idTimer = setInterval(() => pageChange(1), actualSpeed);
   };
 
@@ -39,17 +38,15 @@ class SliderElem extends Component {
     this.idTimer = null;
   };
 
-  // componentDidUpdate() {
-  //   this.startShow()
-  // }
-
   componentWillUnmount() {
     this.stopShow();
   }
 
-  speedChange = ({ target: { value } }) => {
-    // console.log(value);
-    this.setState({ speed: value });
+  inputChange = ({ target: { value, name } }) => {
+    this.setState({ [name]: value });
+  }
+
+  speedChange = () => {
     if (this.state.isStart) {
       this.stopShow();
       this.startShow();
@@ -90,7 +87,8 @@ class SliderElem extends Component {
           name="speed"
           className={speedInput}
           value={speed}
-          onChange={this.speedChange}
+          onChange={this.inputChange}
+          onMouseUp={this.speedChange}
         />
       </div>
     );
