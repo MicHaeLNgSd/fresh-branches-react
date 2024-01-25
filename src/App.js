@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import { ThemeContext } from './context';
+import Header from './components/Header';
+import MainContext from './components/MainContext';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      theme: 'Dark',
+    };
+  }
+  render() {
+    const { theme } = this.state;
+    return (
+      <ThemeContext.Provider value={theme}>
+        <Header />
+        <MainContext />
+        <p>App {theme}</p>
+      </ThemeContext.Provider>
+    );
+  }
 }
 
 export default App;
