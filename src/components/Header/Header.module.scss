@@ -1,0 +1,20 @@
+@import './../../common/style/vars';
+
+.header {
+  min-height: 8vh;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.lightTheme {
+  background-color: $light3;
+}
+
+.darkTheme {
+  background-color: $dark3;
+}
+.pinkTheme {
+  background-color: purple;
+}
