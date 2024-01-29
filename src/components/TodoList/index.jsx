@@ -1,7 +1,9 @@
 import React from 'react';
-import TodoItemWithTheme from '../TodoItemWithTheme';
+import withTheme from '../withTheme';
+import TodoItem from '../TodoItem';
 
 function TodoList({ data: { data: todos, isLoading, error } }) {
+  const TodoItemWithTheme = withTheme(TodoItem);
   const todoItem = todos.map((t) => <TodoItemWithTheme key={t.id} info={t} />);
   return (
     <>

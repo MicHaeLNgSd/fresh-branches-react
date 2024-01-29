@@ -4,7 +4,8 @@ import DataLoader from './components/DataLoader';
 import { ThemeContext } from './contexts';
 import { Component } from 'react';
 import CONFIG from './config';
-import HeaderWithTheme from './components/HeaderWithTheme';
+import withTheme from './components/withTheme';
+import Header from './components/Header';
 const { THEMES } = CONFIG;
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
   };
 
   render() {
+    const HeaderWithTheme = withTheme(Header);
     return (
       <>
         <ThemeContext.Provider value={[this.state.theme, this.setTheme]}>
