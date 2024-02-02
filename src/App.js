@@ -4,7 +4,6 @@ import useDataLoader from './components/DataLoader';
 import { ThemeContext } from './contexts';
 import { useEffect, useState } from 'react';
 import CONFIG from './config';
-import withTheme from './components/withTheme';
 import Header from './components/Header';
 const { THEMES } = CONFIG;
 
@@ -15,19 +14,16 @@ function App() {
     localTheme && setTheme(localTheme);
   }, []);
 
-  useEffect(() => {
-    setTheme((theme) => {
-      localStorage.setItem('theme', theme);
-      return theme;
-    });
-  }, [theme]);
+  function setNewTheme(newTheme) {
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  }
 
-  const HeaderWithTheme = withTheme(Header);
   const data = useDataLoader(getTodo);
   return (
     <>
-      <ThemeContext.Provider value={[theme, setTheme]}>
-        <HeaderWithTheme />
+      <ThemeContext.Provider value={[theme, setNewTheme]}>
+        <Header />
         <TodoList data={data} />
       </ThemeContext.Provider>
     </>

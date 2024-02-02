@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './Header.module.scss';
 import CONFIG from '../../config';
 import classNames from 'classnames';
+import { ThemeContext } from '../../contexts';
 const { header, lightTheme, darkTheme, pinkTheme } = styles;
 const { THEMES } = CONFIG;
 
-function Header({ theme, setTheme }) {
+function Header() {
+  const [theme, setTheme] = useContext(ThemeContext);
   const changeTheme = ({ target: { value } }) => {
     setTheme(value);
   };
