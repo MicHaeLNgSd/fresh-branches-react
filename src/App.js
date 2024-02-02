@@ -1,49 +1,37 @@
 import { getTodo } from './api';
 import TodoList from './components/TodoList';
-import DataLoader from './components/DataLoader';
+import useDataLoader from './components/DataLoader';
 import { ThemeContext } from './contexts';
-import { Component } from 'react';
+import { useEffect, useState } from 'react';
 import CONFIG from './config';
 import withTheme from './components/withTheme';
 import Header from './components/Header';
 const { THEMES } = CONFIG;
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      theme: THEMES.LIGHT,
-    };
-  }
-
-  componentDidMount() {
+function App() {
+  const [theme, setTheme] = useState(THEMES.LIGHT);
+  useEffect(() => {
     const localTheme = window.localStorage.getItem('theme');
-    localTheme && this.setState({ theme: localTheme });
-  }
+    localTheme && setTheme(localTheme);
+  }, []);
 
-  componentDidUpdate(prevProps) {
-    const { theme } = this.state;
-    if (theme !== prevProps.theme) {
+  useEffect(() => {
+    setTheme((theme) => {
       localStorage.setItem('theme', theme);
-    }
-  }
+      return theme;
+    });
+  }, [theme]);
 
-  setTheme = (newTheme) => {
-    this.setState({ theme: newTheme });
-  };
-
-  render() {
-    const HeaderWithTheme = withTheme(Header);
-    return (
-      <>
-        <ThemeContext.Provider value={[this.state.theme, this.setTheme]}>
-          <HeaderWithTheme />
-          <DataLoader loadData={getTodo}>{(data) => <TodoList data={data} />}</DataLoader>
-        </ThemeContext.Provider>
-      </>
-    );
-  }
+  const HeaderWithTheme = withTheme(Header);
+  const data = useDataLoader(getTodo);
+  return (
+    <>
+      <ThemeContext.Provider value={[theme, setTheme]}>
+        <HeaderWithTheme />
+        <TodoList data={data} />
+      </ThemeContext.Provider>
+    </>
+  );
 }
 
 export default App;

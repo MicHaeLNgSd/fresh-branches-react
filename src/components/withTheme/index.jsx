@@ -1,15 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from '../../contexts';
 
 function withTheme(Component) {
   function NewComponent(props) {
-    return (
-      <ThemeContext.Consumer>
-        {([theme, setTheme]) => (
-          <Component theme={theme} setTheme={setTheme} {...props} />
-        )}
-      </ThemeContext.Consumer>
-    );
+    const [theme, setTheme] = useContext(ThemeContext);
+    return <Component theme={theme} setTheme={setTheme} {...props} />;
   }
   return NewComponent;
 }

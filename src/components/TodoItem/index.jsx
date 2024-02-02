@@ -5,12 +5,7 @@ import CONFIG from '../../config';
 const { THEMES } = CONFIG;
 const { todoItem, lightTheme, darkTheme, pinkTheme } = styles;
 
-function TodoItem(props) {
-  const {
-    theme,
-    info: { userId, title, completed },
-  } = props;
-
+function TodoItem({ theme, info: { userId, title, completed } }) {
   const fullClassName = classNames(todoItem, {
     [lightTheme]: theme === THEMES.LIGHT,
     [darkTheme]: theme === THEMES.DARK,

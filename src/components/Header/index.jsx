@@ -5,8 +5,7 @@ import classNames from 'classnames';
 const { header, lightTheme, darkTheme, pinkTheme } = styles;
 const { THEMES } = CONFIG;
 
-function Header(props) {
-  const { theme, setTheme } = props;
+function Header({ theme, setTheme }) {
   const changeTheme = ({ target: { value } }) => {
     setTheme(value);
   };
