@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from '../../context';
 
-class Header extends Component {
-  render() {
-    return (
-      <ThemeContext.Consumer>{(value) => <p>Header: {value}</p>}</ThemeContext.Consumer>
-    );
-  }
+function Header() {
+  const theme = useContext(ThemeContext);
+  return <p>Header: {theme}</p>;
 }
 
 export default Header;

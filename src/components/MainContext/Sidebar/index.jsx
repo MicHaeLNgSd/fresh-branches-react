@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from '../../../context';
 
-class Sidebar extends Component {
-  render() {
-    return (
-      <ThemeContext.Consumer>{(value) => <p>Sidebar: {value}</p>}</ThemeContext.Consumer>
-    );
-  }
+function Sidebar() {
+  const theme = useContext(ThemeContext);
+  return <p>Sidebar: {theme}</p>;
 }
 
 export default Sidebar;
