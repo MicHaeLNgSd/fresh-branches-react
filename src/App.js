@@ -7,10 +7,10 @@ import UserLoaderH from './components/UserLoaderH';
 function App() {
   return (
     <>
-      {/* <UserLoader /> */}
-      {/* <UserLoaderH /> */}
+      {/* <Stopwatch /> */}
       <StopwatchH />
-      {/* <StopwatchH /> */}
+      {/* <UserLoader /> */}
+      <UserLoaderH />
     </>
   );
 }

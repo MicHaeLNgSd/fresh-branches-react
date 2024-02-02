@@ -21,10 +21,6 @@ function UserLoaderH() {
 
   useEffect(() => {
     load();
-  }, []);
-
-  useEffect(() => {
-    load();
   }, [currentPage]);
 
   const handleChangePage = (isNext) => {
