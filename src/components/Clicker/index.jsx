@@ -1,8 +1,8 @@
 import React from 'react';
-import useClick from '../../hooks';
+import { useClick } from '../../hooks';
 
 function Clicker() {
-  const [clicks] = useClick(5);
+  const [clicks] = useClick();
   return (
     <>
       <div>Clicks {clicks}</div>
