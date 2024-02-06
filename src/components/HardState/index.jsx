@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from 'react';
+import Counter from '../Counter';
 
 const initialArgs = {
   number: 0,
@@ -33,8 +34,6 @@ function HardState() {
     coords: { clientX, clientY },
   } = state;
 
-  // console.log(number, clientX, clientY);
-
   function handleChange({ target: { value } }) {
     const action = { type: 'number', payload: +value };
     dispatch(action);
@@ -65,6 +64,7 @@ function HardState() {
       <label>
         <input type="number" value={number} onChange={handleChange} />
       </label>
+      <Counter />
     </div>
   );
 }
