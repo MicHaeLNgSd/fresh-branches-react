@@ -1,7 +1,12 @@
 import './App.css';
+import HardState from './components/HardState';
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <HardState />
+    </>
+  );
 }
 
 export default App;
