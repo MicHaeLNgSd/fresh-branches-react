@@ -6,7 +6,7 @@ const initialArgs = {
   coords: { x: 0, y: 0 },
 };
 
-function reducer(state, action) {
+function reducer (state, action) {
   switch (action.type) {
     case 'number': {
       const newState = {
@@ -27,19 +27,19 @@ function reducer(state, action) {
   }
 }
 
-function HardState() {
+function HardState () {
   const [state, dispatch] = useReducer(reducer, initialArgs);
   const {
     number,
     coords: { clientX, clientY },
   } = state;
 
-  function handleChange({ target: { value } }) {
+  function handleChange ({ target: { value } }) {
     const action = { type: 'number', payload: +value };
     dispatch(action);
   }
 
-  function handleCoords({ clientX, clientY }) {
+  function handleCoords ({ clientX, clientY }) {
     const action = {
       type: 'coords',
       coords: { clientX, clientY },
@@ -62,7 +62,7 @@ function HardState() {
         Square value of {number} is {number ** 2}
       </p>
       <label>
-        <input type="number" value={number} onChange={handleChange} />
+        <input type='number' value={number} onChange={handleChange} />
       </label>
       <Counter />
     </div>

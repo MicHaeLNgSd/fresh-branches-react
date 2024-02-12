@@ -7,7 +7,7 @@ import {
   actionToggleCreator,
 } from './actionsCreators';
 
-function Counter() {
+function Counter () {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { step, count } = state;
 

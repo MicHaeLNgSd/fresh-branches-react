@@ -6,7 +6,7 @@ export const initialState = {
   isPositive: true,
 };
 
-function reducer(state, action) {
+function reducer (state, action) {
   switch (action.type) {
     case ACTION_TYPES.CHANGE_COUNT: {
       const delta = state.isPositive ? state.step : -state.step;

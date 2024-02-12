@@ -1,7 +1,7 @@
 import './App.css';
 import HardState from './components/HardState';
 
-function App() {
+function App () {
   return (
     <>
       <HardState />
