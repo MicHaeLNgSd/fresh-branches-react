@@ -1,12 +1,14 @@
-import './App.css'
-import Counter from './components/Counter'
+import './App.css';
+import Counter from './components/Counter';
+import ThemeSwitcher from './components/ThemeSwitcher';
 
-function App () {
+function App() {
   return (
     <>
+      <ThemeSwitcher />
       <Counter />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -21,7 +21,7 @@ function Counter({ count, step, incrementCount, decrementCount, setNewStep }) {
 }
 
 function mapStateToProps(state) {
-  return state;
+  return state.counter;
 }
 function mapDispatchToProps(dispatch) {
   return {
